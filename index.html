@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maksim Aan photography</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #fafafa;
+margin: 40px;
+color: #333;
+text-align: center;
+}
+a {
+text-decoration: none;
+color: inherit;
+display: inline-block;
+max-width: 400px;
+margin: auto;
+border: 1px solid #ddd;
+border-radius: 8px;
+overflow: hidden;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.thumbnail {
+position: relative;
+width: 100%;
+display: block;
+}
+.thumbnail img {
+width: 100%;
+height: auto;
+display: block;
+}
+.play-button {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 60px;
+height: 60px;
+background: rgba(0, 0, 0, 0.4);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.play-button:before {
+content: '';
+display: inline-block;
+margin-left: 5px;
+border-style: solid;
+border-width: 12px 0 12px 20px;
+border-color: transparent transparent transparent #fff;
+}
+.caption {
+padding: 12px 16px;
+font-size: 16px;
+color: #555;
+}
+</style>
+</head>
+<body>
+
+<h1>Your favorite photo on ice</h1>
+
+<a href="https://www.instagram.com/reel/DJWSJUCNgpj/" target="_blank">
+<div class="thumbnail">
+<img src="img/image1.jpg" alt="Instagram Reel Thumbnail">
+<div class="play-button"></div>
+</div>
+<div class="caption">Tap to view the full reel</div>
+</a>
+
+<p style="margin-top: 40px; font-size: 0.9em; color: #888;">
+*Photos and videos from various figure skating competitions.*
+</p>
+
+</body>
+</html>
