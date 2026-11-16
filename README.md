@@ -15,14 +15,15 @@ with GitHub Pages.
 - Social links for Instagram, Telegram, Facebook, YouTube, and TikTok
 - Action cards for:
   - Shop & Gallery
-  - Ordering Event Photography by email
+  - Ordering Event Photography: a list of upcoming competitions, each linking
+    to its Google Form, plus an email option for other events
   - PayPal support
 - Automatic copyright year
 - Keyboard-visible interactive links and accessible labels
 - Reduced-motion support through `prefers-reduced-motion`
 - SEO description and keyword metadata
 - Open Graph and Twitter Card metadata
-- SVG favicon
+- PNG favicon and Apple touch icon (figure skate)
 - Google Fonts integration using Inter
 
 The current implementation uses a light monochrome visual style. Although the
@@ -37,9 +38,11 @@ lending-page/
 ├── index.html
 ├── style.css
 ├── script.js
-├── PROJECT_LENDING_PAGE_DOCUMENTATION.md
+├── .github/
+│   └── PROJECT_LENDING_PAGE_DOCUMENTATION.md
 ├── assets/
-│   ├── favicon.svg
+│   ├── favicon-32.png
+│   ├── apple-touch-icon.png
 │   └── profile.svg
 └── content/
     └── profile_image.jpg
@@ -87,11 +90,17 @@ Edit the `href` values on the three `.action-card` elements in `index.html`:
 | Card | Current destination |
 | --- | --- |
 | Shop & Gallery | `https://maksimaan.pixieset.com` |
-| Ordering Event Photography | `mailto:orderfrommaksim@gmail.com` |
+| Ordering Event Photography | Google Forms per competition, plus `mailto:orderfrommaksim@gmail.com` |
 | Support My Work | PayPal payment page |
 
 To add another action, duplicate one complete `.action-card` link and update
 its icon, heading, description, and URL.
+
+### Competitions for photo orders
+
+The Ordering Event Photography card contains an `.event-list`. To add a
+competition, copy one `<li>` with an `.event-link` and change its name and
+form URL. Remove competitions after they have passed and orders are closed.
 
 ### Social links
 
@@ -137,9 +146,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-The page contains lightbox markup and related CSS classes, but no gallery is
-currently rendered and no lightbox interaction is implemented in JavaScript.
-These can be used later if a featured photo gallery is added.
 
 ## SEO and social previews
 
@@ -151,21 +157,21 @@ These can be used later if a featured photo gallery is added.
 - Open Graph title, description, image, URL, and site name
 - Twitter summary-card metadata
 
-Before deploying to a different domain or repository, update `og:url`. For the
-most reliable social previews, change `og:image` and `twitter:image` to absolute
-public URLs after the final GitHub Pages address is known.
+`og:url`, the canonical link, `og:image`, and `twitter:image` use absolute
+`https://nohead13.github.io/` URLs. Update them if the site moves to another
+domain.
 
 ## Deploy to GitHub Pages
 
 The site is intended for:
 
 ```text
-https://nohead13.github.io/nohead13.github.io/
+https://nohead13.github.io/
 ```
 
 For a repository named `nohead13.github.io`:
 
-1. Copy the contents of `lending-page/` to the repository root.
+1. Keep the site files at the repository root.
 2. Commit and push `index.html`, `style.css`, `script.js`, `assets/`, and
    `content/`.
 3. Open the GitHub repository settings.
@@ -183,7 +189,6 @@ project subdirectory without rebuilding it.
 - Verify the event-order email address and PayPal link.
 - Check the page at narrow mobile and desktop widths.
 - Confirm the profile image is optimized for the web.
-- Update the canonical Open Graph URL and image URLs.
 - Test keyboard navigation and visible focus states.
 - Run a Lighthouse audit for accessibility, SEO, and performance.
 - Remove macOS `.DS_Store` files before publishing.
@@ -191,6 +196,6 @@ project subdirectory without rebuilding it.
 ## Original specification
 
 The initial design and feature request is retained in
-`PROJECT_LENDING_PAGE_DOCUMENTATION.md`. It is useful as background and for
+`.github/PROJECT_LENDING_PAGE_DOCUMENTATION.md`. It is useful as background and for
 possible future enhancements, but when it conflicts with the current HTML,
 CSS, or JavaScript, the implemented code takes priority.
